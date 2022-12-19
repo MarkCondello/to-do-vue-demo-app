@@ -1,0 +1,22 @@
+{
+  "to-dos": [
+    {
+      "id": "3",
+      "task": "Brush teeth and hair in the morning...",
+      "completion_date": 30,
+      "completed": true
+    },
+    {
+      "id": "0",
+      "task": "...Do more dev training FOO BARR...",
+      "completion_date": 15,
+      "completed": true
+    },
+    {
+      "id": "87783",
+      "task": "Foo barr",
+      "completetion_date": 25,
+      "completed": true
+    }
+  ]
+}
