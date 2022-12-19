@@ -33,3 +33,8 @@ npm run build
 ```sh
 npm run lint
 ```
+## Run Json server
+
+```sh
+npm db
+```
