@@ -20,6 +20,7 @@
 </template>
 <script>
 import {useToDoStore} from '../stores/ToDos.js'
+// import {computed} from 'vue'
 export default {
     name: 'ToDoList',
     props: {
@@ -30,6 +31,11 @@ export default {
     },
     setup(){
         const toDoStore = useToDoStore()
+        // const totalCompleted = computed(() => {
+        //    return toDoStore.todos.map(todo => {
+        //         return todo.completed.value
+        //     }).length - 1
+        // })
         return {toDoStore}
     }
 }

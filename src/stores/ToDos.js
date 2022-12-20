@@ -26,7 +26,7 @@ export const useToDoStore = defineStore('ToDoStore', {
         updateToDoComplete(todo){
             const toDoCompletedUpdate = {...todo, "completed": !todo.completed}
             return ToDoService.updateToDo(toDoCompletedUpdate)
-                .then(resp => {
+                .then(() => {
                     const todoIndex = this.toDoIndex(todo)
                     this.todos[todoIndex].completed = !this.todos[todoIndex].completed
                 })
@@ -43,7 +43,7 @@ export const useToDoStore = defineStore('ToDoStore', {
         },
         deleteToDo(todo){
             return ToDoService.deleteToDo(todo.id)
-                .then(resp => {
+                .then(() => {
                     // I need to slice the todos array after sending the request
                     const todoIndex = this.toDoIndex(todo)
                     this.todos.splice(todoIndex, 1)
@@ -65,6 +65,9 @@ export const useToDoStore = defineStore('ToDoStore', {
     getters: {
         toDoIndex: (state) => {
             return (todo) => state.todos.findIndex(item => item.id === todo.id)
+        },
+        completedToDos: (state) => {
+            return  state.todos.filter(item => item.completed).length
         }
     }
 })

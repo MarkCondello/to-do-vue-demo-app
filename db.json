@@ -8,21 +8,21 @@
     },
     {
       "id": "0",
-      "task": "Do more dev training...",
+      "task": "Do more dev training",
       "completion_date": 15,
-      "completed": true
+      "completed": false
     },
     {
       "id": "14703",
-      "task": "Another todo task ",
+      "task": "Another todo task",
       "completetion_date": 25,
-      "completed": true
+      "completed": false
     },
     {
       "id": "74793",
       "task": "Something",
       "completetion_date": 17,
-      "completed": false
+      "completed": true
     },
     {
       "id": "67763",

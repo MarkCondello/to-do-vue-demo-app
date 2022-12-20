@@ -32,6 +32,8 @@ export default {
 
   <main>
     <ToDoForm />
+    <p>{{toDoStore.completedToDos}} out of {{toDoStore.todos.length}} to dos completed</p>
+
     <ToDoList :toDos="toDoStore.todos"/>
     <!-- <TheWelcome /> -->
   </main>
