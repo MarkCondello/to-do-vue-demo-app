@@ -1,0 +1,13 @@
+{
+  "single-investor": {
+    "name": "John Doe",
+    "sub-total": 1234567,
+    "accounts" : [
+      {
+        "title": 001,
+        "produc-type": "Super/Pension",
+        "balance": 98765
+      }
+    ]
+  }
+}
