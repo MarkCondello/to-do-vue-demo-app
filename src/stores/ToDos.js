@@ -24,8 +24,6 @@ export const useToDoStore = defineStore('ToDoStore', {
             .catch((error) => {throw error})
         },
         updateToDoComplete(todo){
-            console.log('Reached updateToDOCompelted', todo)
-            // do I need to send off a request then update the todo in the store ??
             const toDoCompletedUpdate = {...todo, "completed": !todo.completed}
             return ToDoService.updateToDo(toDoCompletedUpdate)
                 .then(resp => {
@@ -33,14 +31,25 @@ export const useToDoStore = defineStore('ToDoStore', {
                     this.todos[todoIndex].completed = !this.todos[todoIndex].completed
                 })
                 .catch(error => {throw error})
-                //need to send off request
             // console.log('reached updateTodo', {todo, todoIndex, todos: this.todos})
         },
         updateToDoTask(todo){
-            const todoIndex = this.toDoIndex(todo)
-            // this.todos[todoIndex].task = task
-                // task is already updated in state, need to send off request
-            console.log({todo})
+            // task is already updated in state, need to send off request to update db
+            return ToDoService.updateToDo(todo)
+                .then(resp => {
+                    console.log('Reached updateToDoTask', {resp, todo})
+                })
+                .catch(error => {throw error})
+        },
+        deleteToDo(todo){
+            return ToDoService.deleteToDo(todo.id)
+                .then(resp => {
+                    // I need to slice the todos array after sending the request
+                    const todoIndex = this.toDoIndex(todo)
+                    this.todos.splice(todoIndex, 1)
+                    // console.log('reached delete', {resp, todoIndex})
+                })
+                .catch(error => {throw error})
         },
         // fetchToDo(id) {
         //     return ToDoService.getToDo(id)
@@ -52,13 +61,6 @@ export const useToDoStore = defineStore('ToDoStore', {
         //         throw error
         //     })
         // },
-
-        deleteToDo(todo){
-            //do i need to slice the todos array after sending the request
-            console.log('reached delete', todo)
-        },
-      
-
     },
     getters: {
         toDoIndex: (state) => {

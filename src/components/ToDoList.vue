@@ -10,8 +10,7 @@
             <input
                 type="text"
                 v-model="item.task"
-                :class="{'completed' : item.completed}"
-                readonly
+                :class="{ 'completed' : item.completed }"
                 @blur="toDoStore.updateToDoTask(item)"
             />
              <slot></slot>
